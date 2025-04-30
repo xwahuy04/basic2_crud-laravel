@@ -32,7 +32,7 @@
             <tbody>
                 @foreach ($users as $key=>$user)
                     <tr>
-                        <td>{{ $key+1 }}</td>
+                        <td>{{ ($users->currentPage() - 1) * $users->perPage() + $loop->iteration }}</td>
                         <td>{{ $user->first_name }}</td>
                         <td>{{ $user->last_name }}</td>
                         <td>{{ $user->email }}</td>
@@ -43,9 +43,14 @@
                             <a href="{{ url('user/delete/' . $user->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
+               
                 @endforeach
             </tbody>
         </table>
+        <div class="pagination">
+            
+        </div>
+        {!! $users->links() !!}
     </div>
     
 
