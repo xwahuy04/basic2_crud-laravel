@@ -17,7 +17,7 @@ class UserController extends Controller
             return redirect('/');
         }
 
-        $users = User::all();
+        $users = User::paginate(5);
         return view('user-list' , compact('users'));
     }
 
