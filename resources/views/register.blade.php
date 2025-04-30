@@ -19,31 +19,50 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">First Name:</label>
-                    <input type="text" class="form-control" placeholder="Enter First Name" id="first_name" name="first_name">
+                    <input type="text" class="form-control @error('first_name') is-invalid @enderror" placeholder="Enter First Name" id="first_name"
+                        name="first_name">
+                    @error('first_name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="name">Last Name:</label>
-                    <input type="text" class="form-control" placeholder="Enter Last Name" id="last_name" name="last_name">
+                    <input type="text" class="form-control @error('last_name') is-invalid @enderror" placeholder="Enter Last Name" id="last_name"
+                        name="last_name">
+                    @error('last_name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" placeholder="Enter email" id="email" name="email">
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Enter email" id="email" name="email" value="{{ old('email') }}">
+                    @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="password">
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Enter password" id="pwd"
+                        name="password">
+                    @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="gender">Gender:</label>
                     <input type="radio" name="gender" value="male"> Male
                     <input type="radio" name="gender" value="female"> Female
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="pwd">Phone:</label>
-                    <input type="number" class="form-control" placeholder="Enter your phone" id="phone" name="phone">
+                    <input type="number" class="form-control @error('phone') is-invalid @enderror" placeholder="Enter your phone" id="phone"
+                        name="phone">
+                    @error('phone')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>
-                <p>Already have an account? <a href="{{ url('/') }}">Click Here</a>  to login</p>
+                <p>Already have an account? <a href="{{ url('/') }}">Click Here</a> to login</p>
             </form>
         </div>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserValidate;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -15,9 +16,8 @@ class RegisterController extends Controller
     }
 
     
-    public function store(Request $request)  
+    public function store(UserValidate $request)  
     {
-        
         $user = new User();
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
@@ -26,6 +26,6 @@ class RegisterController extends Controller
         $user->gender = $request->gender;
         $user->phone = $request->phone;
         $user->save();
-        return redirect('/');
+        return redirect('/')->with('success', 'User Register Successfully');
     }
 }

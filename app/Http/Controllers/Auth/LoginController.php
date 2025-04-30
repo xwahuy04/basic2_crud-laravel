@@ -15,9 +15,9 @@ class LoginController extends Controller
 
             $request->session()->regenerate();
  
-            return redirect('user/list');
+            return redirect('user/list')->with('success' , 'User Login Successfully');
         } else {
-            dd('Credential Not match');
+            return back()->with('error' ,'Credential Not match');
         }
     }
 

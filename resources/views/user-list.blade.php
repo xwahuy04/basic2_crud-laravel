@@ -11,6 +11,9 @@
 <body>
 
     <div class="container">
+
+        @include('error_message')
+
         <a href="{{ url('user/create') }}" class="btn btn-sm btn-primary mt-2">Add User</a>
         <a href="{{ url('logout') }}" class="btn btn-sm btn-danger mt-2">Logout</a>
 
