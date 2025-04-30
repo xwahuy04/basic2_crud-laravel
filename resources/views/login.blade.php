@@ -14,6 +14,9 @@
         <div class="m-2">
             <h2><strong>Login Form</strong></h2>
         </div>
+
+        @include('error_message')
+
         <div>
             <form action="{{ url('login') }}" method="POST">
                 @csrf
@@ -23,11 +26,12 @@
                 </div>
                 <div class="form-group">
                     <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="password">
+                    <input type="password" class="form-control" placeholder="Enter password" id="pwd"
+                        name="password">
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
-                <p>No have an account? <a href="{{ url('register') }}">Click Here</a>  to create an account</p>
-            </form> 
+                <p>No have an account? <a href="{{ url('register') }}">Click Here</a> to create an account</p>
+            </form>
         </div>
     </div>
 
