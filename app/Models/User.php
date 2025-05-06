@@ -22,7 +22,9 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
-        'gender'
+        'gender',
+        'phone',
+        'image'
     ];
 
     /**
@@ -43,4 +45,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // function image
+    public function getImage()
+    {
+        if($this->image)
+        {
+            return '<img src="'.asset($this->image).'" alt="" height="100px" width="150px">';
+        }
+
+    }
 }

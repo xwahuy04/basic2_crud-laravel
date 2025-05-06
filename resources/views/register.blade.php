@@ -15,7 +15,7 @@
             <h2><strong>Register Form</strong></h2>
         </div>
         <div>
-            <form action="{{ url('register') }}" method="POST">
+            <form action="{{ url('register') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="name">First Name:</label>
@@ -52,6 +52,16 @@
                     <label for="gender">Gender:</label>
                     <input type="radio" name="gender" value="male"> Male
                     <input type="radio" name="gender" value="female"> Female
+                </div>
+                <div class="form-group">
+                    <label for="hobby">Hobby:</label>
+                    <input type="checkbox" name="hobby[]" value="reading"> Reading
+                    <input type="checkbox" name="hobby[]" value="playing"> Playing
+                    <input type="checkbox" name="hobby[]" value="travelling"> Travelling
+                </div>
+                <div class="form-group">
+                    <label for="image">Image:</label>
+                    <input type="file" name="image" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="pwd">Phone:</label>

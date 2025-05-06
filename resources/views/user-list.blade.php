@@ -40,7 +40,9 @@
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Gender</th>
+                    <th>Hobby</th>
                     <th>Phone</th>
+                    <th>Image</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -52,7 +54,9 @@
                         <td>{{ $user->last_name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->gender }}</td>
+                        <td>{{ $user->hobby }}</td>
                         <td>{{ isset($user->phone) ? $user->phone : '-' }}</td>
+                        <td>{!! $user->getImage() !!}</td>
                         <td>
                             <a href="{{ url('user/edit/' . $user->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
                             <a href="{{ url('user/delete/' . $user->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
