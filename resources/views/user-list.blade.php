@@ -14,8 +14,23 @@
 
         @include('error_message')
 
-        <a href="{{ url('user/create') }}" class="btn btn-sm btn-primary mt-2">Add User</a>
-        <a href="{{ url('logout') }}" class="btn btn-sm btn-danger mt-2">Logout</a>
+        <div class="row">
+            <div class="col-6">
+                <a href="{{ url('user/create') }}" class="btn btn-sm btn-primary mt-2">Add User</a>
+                <a href="{{ url('logout') }}" class="btn btn-sm btn-danger mt-2">Logout</a>
+            </div>
+
+            <div class="col-6">
+                <form action="{{ url('user/list') }}" class="row" method="get">
+                    <div class="col-8">
+                        <input type="text" name="search" placeholder="Search Here" class="form-control" value="{{ $search }}">
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         <table class="table table-striped">
             <thead>
@@ -50,7 +65,7 @@
         <div class="pagination">
             
         </div>
-        {!! $users->links() !!}
+        {!! $users->appends(['search' => $search])->links() !!}
     </div>
     
 
