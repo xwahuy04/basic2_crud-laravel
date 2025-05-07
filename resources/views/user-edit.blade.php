@@ -15,7 +15,7 @@
             <h2><strong>User Edit Form</strong></h2>
         </div>
         <div>
-            <form action="{{ url('user/update') }}" method="POST">
+            <form action="{{ url('user/update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="name">First Name:</label>
@@ -42,7 +42,15 @@
                     <label for="phone">Phone:</label>
                     <input type="number" class="form-control" placeholder="Enter your phone" id="phone" name="phone" value="{{ $user->phone }}">
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                 <div class="form-group">
+                    <label for="image">Image:</label>
+                    <input type="file" class="form-control" id="image" name="image">
+                  </div>
+                   @if ($user->image)
+                       {!! $user->getImage() !!}
+                   @endif
+                   <br>
+                <button type="submit" class="btn btn-primary" style="margin-top: 10px">Update</button>
             </form>
         </div>
     </div>
